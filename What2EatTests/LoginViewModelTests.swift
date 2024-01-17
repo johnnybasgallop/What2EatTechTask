@@ -15,7 +15,7 @@ final class LoginViewModelTests: XCTestCase {
         loginViewModel.loggedIn = false
         
         if loginViewModel.loggedIn == false {
-            loginViewModel.loginWithEmailAndPassword(email: "artlume.io@example.com", password:"P455Word12"){success in
+            loginViewModel.loginWithEmailAndPassword(email: "artlume.io@example.com", password:"P455Word12"){success, message in
                 if success{
                     XCTAssertTrue(loginViewModel.loggedIn)
                 }
