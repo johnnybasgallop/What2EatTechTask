@@ -24,6 +24,10 @@ final class LoginViewModel: ObservableObject {
             completion(true)
             
         }
+        
+        else if email != testUserAccountEmail {
+            completion(false)
+        }
     }
     
     

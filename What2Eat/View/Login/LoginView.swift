@@ -110,7 +110,11 @@ struct LoginButton: View {
     
     var body: some View {
         Button(action: {
-            loginViewModel.loginWithEmailAndPassword(email: email, password: password){success in}
+            loginViewModel.loginWithEmailAndPassword(email: email, password: password){success in
+                if !success{
+                    isPresented = true
+                }
+            }
         }) {
             Text("Login")
                 .frame(width: 300, height: 50)
@@ -123,7 +127,7 @@ struct LoginButton: View {
         .alert(isPresented: $isPresented ) {
             Alert(
                 title: Text("Error logging in"),
-                message: Text("Sorry we cant log you in at this time, try re-entering your email and password or waiting 5 minutes"),
+                message: Text("Incorrect email or password, Try again."),
                 dismissButton:  .default(Text("Dismiss")) {
                     isPresented = false
                 }
